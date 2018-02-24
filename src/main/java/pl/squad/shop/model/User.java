@@ -104,25 +104,21 @@ public class User {
 
 	private String lastName;
 
-	public void setActive(boolean b) {
-		this.active = true;
-		
+	public String getPassword() {
+		return password;
 	}
 
-	public CharSequence getPassword() {
-		return null;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public void setPassword(String encode) {
-		
-		
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setPassword(CharSequence password2) {
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	
-		
-	}
-	
-
-//	
 }
