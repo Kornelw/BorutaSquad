@@ -45,6 +45,7 @@ public class UserService {
 		this.roleRepository = roleRepository;
 		this.entityManager = entityManager;
 		
+		
 	}
 	
 	public User addUserWithRoleUser(User user) {
@@ -92,7 +93,7 @@ public class UserService {
 		userRepository.delete(id);
 	}
 
-	public Page<User> getByFilter(UserFilter userFilter, Pageable pageable) {
+	public Page<User> getByFilter(pl.squad.shop.controller.UserFilter userFilter, Pageable pageable) {
 		
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<User> query = criteriaBuilder.createQuery(User.class);
