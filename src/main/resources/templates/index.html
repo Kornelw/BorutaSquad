@@ -46,6 +46,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 					<li class="nav-item" sec:authorize="isAuthenticated()"><form th:action="@{/logout}" method="post">
              	<button class="btn btn-primary" type="submit" value="Logout">Logout</button>
              </form></li>
+
 				</ul>
 			</div>
 		</div>
