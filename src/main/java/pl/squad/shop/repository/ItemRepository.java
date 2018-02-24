@@ -8,6 +8,6 @@ import pl.squad.shop.model.Item;
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long>{
 	
-	Item findAllOrderByNameDesc();
+	Item findAllByOrderByNameDesc();
 
 }

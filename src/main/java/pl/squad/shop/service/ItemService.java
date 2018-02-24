@@ -29,7 +29,7 @@ public class ItemService {
 	}
 	
 	public Item getFirst() {
-		return itemRepo.findAllOrderByNameDesc();
+		return itemRepo.findAllByOrderByNameDesc();
 	}
 
 }
