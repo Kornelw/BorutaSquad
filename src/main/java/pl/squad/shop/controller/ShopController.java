@@ -8,36 +8,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import pl.squad.shop.model.Item;
-import pl.squad.shop.repository.ItemRepository;
+import pl.squad.shop.service.ItemService;
 
 @Controller
 public class ShopController {
+
+private ItemService itemService;
 	
+	@Autowired
+	public ShopController(ItemService itemService) {
+		this.itemService = itemService;
+	}
+
 	@GetMapping("/")
-	public String index() {
-		
-//----------------kopia z itemListController		
-//		private ItemRepository itemRepo;
-//
-//		@Autowired
-//		public ItemListController(ItemRepository itemRepo) {
-//			this.itemRepo = itemRepo;
-//		}
-//
-//		public String itemList(Model model, Pageable pageable) {
-//
-//			
-//
-//			Page<Item> pageItem = itemService.getAll(pageable);
-//			model.addAttribute("items", pageItem);
-//			PageWrapper<Item> page = new PageWrapper<>(pageItem, "/");
-//			model.addAttribute("item", item);
-		
-//----------------kopia z itemListController	
-		
-		
-		// dorobic pobranie z bazy obiektu w postaci listy do wyswietlenia
+	public String index(Model model, Pageable pageable) {
+
+		Page<Item> pageItem = itemService.getAll(pageable);
+		model.addAttribute("items", pageItem);
+//		PageWrapper<Item> page = new PageWrapper<>(pageItem, "/");
+//		model.addAttribute("page", page);
 		
 		return "index";
 	}
+
 }
