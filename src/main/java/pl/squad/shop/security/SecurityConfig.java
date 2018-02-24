@@ -40,6 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		    .authorizeRequests()
 			.antMatchers("/admin/*").hasAuthority("Admin")
 			.antMatchers("/moderator/*").hasAnyAuthority("Moderator","Admin")
-			.anyRequest().permitAll();
+			.anyRequest().permitAll()
+			.and()
+			.formLogin().loginPage("/login").failureUrl("/login?error=true").defaultSuccessUrl("/")
+			.usernameParameter("email")
+			.passwordParameter("password")
+			.and()
+			.logout().logoutUrl("/logout").logoutSuccessUrl("/");
 	}
 }
