@@ -9,6 +9,8 @@ public class ShopController {
 	@GetMapping("/")
 	public String index() {
 		
+		// dorobic pobranie z bazy obiektu w postaci listy do wyswietlenia
+		
 		return "index";
 	}
 
