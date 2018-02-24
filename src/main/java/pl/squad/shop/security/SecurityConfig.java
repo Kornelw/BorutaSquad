@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.jdbcAuthentication()
 			.usersByUsernameQuery("SELECT email, password, name FROM user WHERE email = ?")
 			.authoritiesByUsernameQuery(
-					"SELECT u.email, r.name FROM user u "
+					"SELECT u.email, r.role FROM user u "
 					+ "inner join role r on r.id = u.role_id "
 					+ "where u.email=?"
 					)
