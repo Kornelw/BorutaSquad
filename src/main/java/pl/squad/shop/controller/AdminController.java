@@ -35,7 +35,7 @@ public class AdminController {
 		return "admin/config";
 	}
 	
-	@PostMapping("/config")
+	@PostMapping("/admin")
 	public String filter(@ModelAttribute UserFilter userFilter, Pageable pageable, Model model) {
 		
 		Page<User> pageUser = userService.getByFilter(userFilter, pageable);
