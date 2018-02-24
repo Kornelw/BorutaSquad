@@ -32,7 +32,7 @@ public class AdminController {
 		model.addAttribute("page", page);
 		model.addAttribute("filter", new UserFilter());
 		
-		return "admin/config";
+		return "admin/admin";
 	}
 	
 	@PostMapping("/admin")
@@ -40,11 +40,11 @@ public class AdminController {
 		
 		Page<User> pageUser = userService.getByFilter(userFilter, pageable);
 		model.addAttribute("users", pageUser);
-		PageWrapper<User> page = new PageWrapper<>(pageUser, "/admin/config/");
+		PageWrapper<User> page = new PageWrapper<>(pageUser, "/admin/admin/");
 		model.addAttribute("page", page);
 		model.addAttribute("filter", userFilter);
 		
 		
-		return "admin/config";
+		return "admin/admin";
 	}
 }
