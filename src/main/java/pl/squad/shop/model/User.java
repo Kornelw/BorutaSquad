@@ -103,6 +103,25 @@ public class User {
 	private String name;
 
 	private String lastName;
+
+	public void setActive(boolean b) {
+		this.active = true;
+		
+	}
+
+	public CharSequence getPassword() {
+		return null;
+	}
+
+	public void setPassword(String encode) {
+		
+		
+	}
+
+	public void setPassword(CharSequence password2) {
+	
+		
+	}
 	
 
 //	
