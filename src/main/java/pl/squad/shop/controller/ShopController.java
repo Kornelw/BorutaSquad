@@ -13,12 +13,4 @@ public class ShopController {
 		
 		return "index";
 	}
-
-	@GetMapping("/login")
-	public String login() {
-		
-		// dorobic pobranie z bazy obiektu w postaci listy do wyswietlenia
-		
-		return "login";
-	}
 }
