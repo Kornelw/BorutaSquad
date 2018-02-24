@@ -3,10 +3,10 @@
 
   <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
     <title>BorutaSquad registration form</title>
 
@@ -56,10 +56,10 @@
 	    		<div class="control-group">
 	              <div class="form-group floating-label-form-group controls">
 	                <label>Email Address</label>
-	                <input type="email" th:field="*{mail}" class="form-control" placeholder="Email Address" id="mail" />
+	                <input type="email" th:field="*{email}" class="form-control" placeholder="Email Address" id="email" />
 	                <p class="help-block text-danger"></p>
 	              </div>
-	              <label th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}" class="help-block text-danger"></label>
+	              <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="help-block text-danger"></label>
 	            </div>
 	            <div class="control-group">
 	              <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -95,7 +95,7 @@
     		</form>
     	</div>
     </div>
-      	
+     </div>	
     <!-- /.container -->
 
     <!-- Footer -->
