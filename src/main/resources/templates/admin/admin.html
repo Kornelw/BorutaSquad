@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    
+
+    <title>Shop Homepage - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/shop-homepage.css" rel="stylesheet"/>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<div class="container">
+
+		<!-- <form th:action="@{/admin/config}" method="post" th:object="${filter}">
+			<div class="form-group">
+			Name: <input type="text" th:field="*{name}" placeholder="Name"/>
+			Last Name: <input type="text" th:field="*{lastName}" placeholder="Last name"/>
+			Email: <input type="text" th:field="*{email}" placeholder="email"/>
+			<br/><br/>
+			
+			<button type="submit" class="btn btn-primary">Search</button>
+			</div>
+		</form> -->
+
+		<br /> <br />
+
+		<div th:if="${#lists.isEmpty(users)}">Empty list users!</div>
+		<div th:if="${not #lists.isEmpty(users)}">
+			<table class="table table-striped">
+
+				<tr>
+					<th>Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Active</th>
+					<th>Role</th>
+					<th>View</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.name}" />
+					<td th:text="${user.lastName}" />
+					<td th:text="${user.email}" />
+					<td th:text="${user.active}" />
+					<td th:text="${user.role.role}" />
+					<td><a th:href="${'/users/' +user.id}">View</a></td>
+					<td><a th:href="${'/users/edit/' +user.id}">Edit</a></td>
+					<td><a th:href="${'/users/delete/' +user.id}">Delete</a></td>
+				</tr>
+
+
+			</table>
+
+			<!-- Pagination Bar -->
+			<div th:fragment='paginationbar'>
+				<div>
+					<ul class='pagination pagination-centered'>
+						<li th:class="${page.firstPage}?'disabled':''"><span
+							th:if='${page.firstPage}'>← First</span> <a
+							th:if='${not page.firstPage}'
+							th:href='@{${page.url}(page=0,size=${page.size})}'>← First</a></li>
+						<li th:class="${page.hasPreviousPage}? '' : 'disabled'"><span
+							th:if='${not page.hasPreviousPage}'>«</span> <a
+							th:if='${page.hasPreviousPage}'
+							th:href='@{${page.url}(page=${page.number-2},size=${page.size})}'
+							title='Go to previous page'>«</a></li>
+						<li th:each='item : ${page.items}'
+							th:class="${item.current}? 'active' : ''"><span
+							th:if='${item.current}' th:text='${item.number}'>1</span> <a
+							th:if='${not item.current}'
+							th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span
+								th:text='${item.number}'>1</span></a></li>
+						<li th:class="${page.hasNextPage}? '' : 'disabled'"><span
+							th:if='${not page.hasNextPage}'>»</span> <a
+							th:if='${page.hasNextPage}'
+							th:href='@{${page.url}(page=${page.number},size=${page.size})}'
+							title='Go to next page'>»</a></li>
+						<li th:class="${page.lastPage}? 'disabled' : ''"><span
+							th:if='${page.lastPage}'>Last →</span> <a
+							th:if='${not page.lastPage}'
+							th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last
+								→</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+    </body>
+   </html>
